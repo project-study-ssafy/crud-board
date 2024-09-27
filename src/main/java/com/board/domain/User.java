@@ -9,19 +9,20 @@ import java.util.List;
 @Getter
 @Entity
 @NoArgsConstructor
+@Table(name = "\"USER\"")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "nickname", length = 20)
+    @Column(name = "nickname", length = 10)
     private String nickname;
 
     @Column(name = "password", length = 100)
     private String password;
 
-    @Column(name = "logoinId", length = 30)
+    @Column(name = "logoinId", length = 20)
     private String loginId;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
@@ -29,5 +30,11 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Reply> replies;
+
+    public User(String nickname, String password, String loginId) {
+        this.nickname = nickname;
+        this.password = password;
+        this.loginId = loginId;
+    }
 
 }
