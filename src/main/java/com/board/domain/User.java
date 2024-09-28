@@ -22,7 +22,7 @@ public class User {
     @Column(name = "password", length = 100)
     private String password;
 
-    @Column(name = "logoinId", length = 20)
+    @Column(name = "loginId", length = 20)
     private String loginId;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
