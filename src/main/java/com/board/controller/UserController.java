@@ -32,15 +32,17 @@ public class UserController {
         BindingResult bindingResult, HttpServletRequest request) {
 
         if (bindingResult.hasErrors()) {
-            return "user/signUp";
+            return "user/signUpForm";
         }
-
         User loginUser;
         try {
             loginUser = userService.signUpProcess(signUpDto);
         } catch (DuplicatedLoginIdException e) {
-            bindingResult.reject("loginId.duplicated", "중복된 id 입니다.");
-            return "user/signUp";
+            bindingResult.rejectValue("loginId", "loginId.duplicated", "중복된 id 입니다.");
+            return "user/signUpForm";
+        } catch (DuplicatedNicknameException e) {
+            bindingResult.rejectValue("nickname", "nickname.duplicated", "중복된 닉네임 입니다.");
+            return "user/signUpForm";
         }
         HttpSession session = request.getSession();
         session.setAttribute("loginMember", loginUser);
