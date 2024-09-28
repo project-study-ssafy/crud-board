@@ -22,7 +22,7 @@ public class User {
     @Column(name = "password", length = 100)
     private String password;
 
-    @Column(name = "logoinId", length = 20)
+    @Column(name = "loginId", length = 20)
     private String loginId;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
@@ -31,10 +31,15 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Reply> replies;
 
-    public User(String nickname, String password, String loginId) {
+    public User(String loginId, String password, String nickname) {
         this.nickname = nickname;
         this.password = password;
         this.loginId = loginId;
+    }
+
+    public void update(String nickname, String password) {
+        this.nickname = nickname;
+        this.password = password;
     }
 
 }
