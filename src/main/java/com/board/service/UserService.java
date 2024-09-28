@@ -2,6 +2,7 @@ package com.board.service;
 
 import com.board.domain.User;
 import com.board.dto.user.SignUpDto;
+import com.board.dto.user.UserUpdateDto;
 import com.board.global.exception.user.DuplicatedLoginIdException;
 import com.board.global.exception.user.DuplicatedNicknameException;
 import com.board.global.exception.user.UserNotFoundException;
@@ -33,6 +34,23 @@ public class UserService {
 
         User signUpuser = new User(loginId, password, nickname);
         return userRepository.save(signUpuser);
+    }
+
+    public User updateProcess(int id, UserUpdateDto userUpdateDto) {
+        User user = userRepository.findById(id).orElse(null);
+
+        if (user == null) {
+            throw new UserNotFoundException();
+        }
+
+        User findUser = userRepository.findByNickname(userUpdateDto.getNickname());
+
+        if (findUser != null && findUser.getId() != id) {
+            throw new DuplicatedNicknameException();
+        }
+
+        user.update(userUpdateDto.getNickname(), userUpdateDto.getPassword());
+        return user;
     }
 
 }
