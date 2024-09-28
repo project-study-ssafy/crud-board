@@ -31,7 +31,7 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Reply> replies;
 
-    public User(String nickname, String password, String loginId) {
+    public User(String loginId, String password, String nickname) {
         this.nickname = nickname;
         this.password = password;
         this.loginId = loginId;
