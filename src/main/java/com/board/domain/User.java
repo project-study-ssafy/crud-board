@@ -37,4 +37,9 @@ public class User {
         this.loginId = loginId;
     }
 
+    public void update(String nickname, String password) {
+        this.nickname = nickname;
+        this.password = password;
+    }
+
 }
