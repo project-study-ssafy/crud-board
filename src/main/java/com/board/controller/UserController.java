@@ -45,7 +45,7 @@ public class UserController {
             return "user/signUpForm";
         }
         HttpSession session = request.getSession();
-        session.setAttribute("loginMember", loginUser);
+        session.setAttribute("loginUser", loginUser);
         return "redirect:/";
     }
 }
