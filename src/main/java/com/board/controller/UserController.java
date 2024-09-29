@@ -96,4 +96,17 @@ public class UserController {
         return "redirect:/";
     }
 
+    @GetMapping("/detail/{id}")
+    public String detailForm(@PathVariable("id") int id, Model model, HttpServletRequest request) {
+        User user = (User) request.getSession().getAttribute("loginUser");
+        if (user == null) {
+            return "redirect:/";
+        }
+        if (user.getId() != id) {
+            return "redirect:/";
+        }
+        model.addAttribute("user", user);
+        return "user/detailForm";
+    }
+
 }
