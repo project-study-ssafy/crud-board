@@ -53,8 +53,8 @@ public class UserController {
         return "redirect:/";
     }
 
-    @GetMapping("/update")
-    public String updateForm(Model model, HttpServletRequest request) {
+    @GetMapping("/update/{id}")
+    public String updateForm(@PathVariable int id, Model model, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("loginUser");
         if (user == null) {
             return "redirect:/";
