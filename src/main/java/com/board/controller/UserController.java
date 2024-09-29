@@ -72,7 +72,6 @@ public class UserController {
         BindingResult bindingResult, HttpServletRequest request) {
 
         if (bindingResult.hasErrors()) {
-            System.out.println("UserController.first");
             return "user/updateForm";
         }
 
@@ -80,7 +79,6 @@ public class UserController {
         User loginUser = (User) session.getAttribute("loginUser");
 
         if (loginUser.getId() != id) {
-            System.out.println("UserController.second");
             bindingResult.reject("id.notMatch", "잘못된 요청입니다");
             return "user/updateForm";
         }
@@ -89,11 +87,9 @@ public class UserController {
             userService.updateProcess(id, userUpdateDto);
         } catch (DuplicatedLoginIdException e) {
             bindingResult.reject("id.notfound", "사용자를 찾을 수 없습니다.");
-            System.out.println("UserController.third");
             return "user/updateForm";
         } catch (DuplicatedNicknameException e) {
             bindingResult.rejectValue("nickname", "nickname.duplicated", "중복된 닉네입 입니다.");
-            System.out.println("UserController.fourth");
             return "user/updateForm";
         }
         session.setAttribute("loginUser", loginUser);
