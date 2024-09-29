@@ -20,7 +20,9 @@
     </div>
 
     <a href="${pageContext.request.contextPath}/user/update/${user.id}" type="button">회원 정보 수정하기</a>
-    <a href="${pageContext.request.contextPath}/user/delete/${user.id}" type="button">회원 삭제하기</a>
-
+    <form action="${pageContext.request.contextPath}/user/delete/${user.id}" method="POST"
+          style="display: inline;" onsubmit="return confirm('정말로 삭제하시겠습니까?');">
+        <button type="submit">회원 삭제하기</button>
+    </form>
 </div>
 
