@@ -53,4 +53,11 @@ public class UserService {
         return user;
     }
 
+    public void withdraw(int id) {
+        User user = userRepository.findById(id).orElse(null);
+        if (user == null) {
+            throw new UserNotFoundException();
+        }
+        userRepository.delete(user);
+    }
 }

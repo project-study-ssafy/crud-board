@@ -5,10 +5,12 @@ import com.board.dto.user.SignUpDto;
 import com.board.dto.user.UserUpdateDto;
 import com.board.global.exception.user.DuplicatedLoginIdException;
 import com.board.global.exception.user.DuplicatedNicknameException;
+import com.board.global.exception.user.UserNotFoundException;
 import com.board.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@Slf4j
 @Controller
 @RequestMapping("/user")
 @RequiredArgsConstructor
@@ -109,4 +112,22 @@ public class UserController {
         return "user/detailForm";
     }
 
+    @PostMapping("/delete/{id}")
+    public String delete(@PathVariable("id") int id, HttpServletRequest request) {
+        User user = (User) request.getSession().getAttribute("loginUser");
+        if (user == null) {
+            return "redirect:/";
+        }
+        if (user.getId() != id) {
+            return "redirect:/";
+        }
+        try {
+            userService.withdraw(id);
+        } catch (UserNotFoundException e) {
+            log.error(e.getMessage());
+            return "redirect:/";
+        }
+        request.getSession().removeAttribute("loginUser");
+        return "redirect:/";
+    }
 }

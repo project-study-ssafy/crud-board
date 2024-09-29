@@ -9,6 +9,7 @@ import com.board.dto.user.SignUpDto;
 import com.board.dto.user.UserUpdateDto;
 import com.board.global.exception.user.DuplicatedLoginIdException;
 import com.board.global.exception.user.DuplicatedNicknameException;
+import com.board.global.exception.user.UserNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -92,6 +93,19 @@ class UserServiceTest {
         assertThrows(DuplicatedNicknameException.class, () -> userService.updateProcess(
             user2.getId(), updateDto));
 
+    }
+
+    @Test
+    void 회원_탈퇴_성공() {
+        SignUpDto signUp = new SignUpDto();
+        signUp.setLoginId("test");
+        signUp.setPassword("12345678");
+        signUp.setNickname("test");
+        User user = userService.signUpProcess(signUp);
+
+        userService.withdraw(user.getId());
+
+        assertThrows(UserNotFoundException.class, () -> userService.withdraw(user.getId()));
     }
 
 }
