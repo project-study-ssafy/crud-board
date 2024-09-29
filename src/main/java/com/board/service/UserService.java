@@ -8,6 +8,7 @@ import com.board.global.exception.user.DuplicatedNicknameException;
 import com.board.global.exception.user.UserNotFoundException;
 import com.board.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,11 +18,12 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final BCryptPasswordEncoder passwordEncoder;
+
 
     public User signUpProcess(SignUpDto user) {
 
         String loginId = user.getLoginId();
-        String password = user.getPassword();
         String nickname =  user.getNickname();
 
         if (userRepository.existsByLoginId(loginId)) {
@@ -32,7 +34,9 @@ public class UserService {
             throw new DuplicatedNicknameException("중복된 닉네임입니다.");
         }
 
-        User signUpuser = new User(loginId, password, nickname);
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+
+        User signUpuser = new User(loginId, encodedPassword, nickname);
         return userRepository.save(signUpuser);
     }
 
