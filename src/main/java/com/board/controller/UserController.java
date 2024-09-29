@@ -59,6 +59,9 @@ public class UserController {
         if (user == null) {
             return "redirect:/";
         }
+        if (user.getId() != id) {
+            return "redirect:/";
+        }
         model.addAttribute("user", user);
         return "user/updateForm";
     }
