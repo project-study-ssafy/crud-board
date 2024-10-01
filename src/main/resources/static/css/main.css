@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.btn {
+  text-decoration: none; /* 링크 밑줄 제거 (a 태그에 해당) */
+  transition: background-color 0.3s ease; /* 배경색 전환 효과 */
+  cursor: pointer; /* 버튼 모양의 커서 */
+}
+
+.login-main {
+  display: flex;
+  justify-content: center; /* 수평 가운데 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+  height: 100vh; /* 화면 전체 높이를 차지 */
+}
+
+.login-container {
+  width: 100%;
+  max-width: 500px; /* 가로 크기를 더 크게 설정 */
+  min-height: 350px; /* 최소 높이를 설정 */
+  padding: 40px; /* 여백 추가 */
+  background-color: rgba(239, 243, 255, 0.9); /* 배경색 설정 */
+  border-radius: 10px; /* 모서리 둥글게 */
+}
+
+.form-group {
+  margin-bottom: 20px; /* 폼 요소 간의 간격을 크게 */
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  font-size: 17px;
+}
+
+.login-btn {
+  width: 100%; /* 버튼 너비를 100%로 */
+  padding: 10px; /* 버튼 높이 조정 */
+  font-size: 18px; /* 버튼 글자 크기 키우기 */
+  color: white;
+  background-color: rgb(40, 46, 106, 69);
+  border-radius: 10px; /* 모서리 둥글게 */
+  height: 50px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  cursor: pointer; /* 버튼 모양의 커서 */
+}
+
+fieldset.login-fieldset {
+  border: 0;
+}
+
+.form-group label {
+  display: block; /* 라벨을 블록 요소로 설정하여 한 줄 차지 */
+  margin-bottom: 5px; /* 입력칸과 라벨 사이에 약간의 여백 추가 */
+  font-weight: 1000;
+}
+
+.form-control {
+  width: 100%; /* 입력칸이 부모 요소의 너비를 모두 차지 */
+  padding: 10px; /* 입력칸 안에 여백 추가 */
+  font-size: 16px; /* 글자 크기 조정 */
+}
+
+.form-group input {
+  width: 100%; /* 입력 칸이 부모 요소의 너비를 모두 차지 */
+  padding: 10px; /* 내부 여백 추가 */
+  font-size: 16px; /* 글자 크기 조정 */
+  border: 1px solid #ccc; /* 기본 테두리 */
+  border-radius: 10px; /* 모서리를 둥글게 설정 */
+  height: 50px; /* 높이를 조정 */
+  box-sizing: border-box; /* 패딩과 테두리를 포함하여 크기 계산 */
+  font-weight: 800;
+}
+
+/* 회원가입 버튼 스타일 */
+.sign-up-btn {
+  width: 100%; /* 버튼 너비를 100%로 */
+  font-size: 18px; /* 버튼 글자 크기 키우기 */
+  height: 50px;
+  color: white;
+  border-radius: 10px; /* 모서리 둥글게 */
+  font-weight: 800;
+  background-color: #4caf50; /* 초록색 배경 */
+  display: flex; /* Flexbox 사용 */
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: center; /* 수평 가운데 정렬 */
+}
+
+.sign-up-btn:hover {
+  background-color: #45a049; /* hover 시 더 진한 초록색 */
+}
+
+.login-btn:hover {
+  background-color: rgb(27, 32, 90);
+}
