@@ -59,8 +59,9 @@ public class SecurityConfig {
         MvcRequestMatcher[] permitAllWhiteList = {
             mvc.pattern("/"),
             mvc.pattern("/login"),
-            mvc.pattern("/sign-up"),
+            mvc.pattern("/user/sign-up"),
             mvc.pattern("/WEB-INF/views/**"),
+            mvc.pattern("/css/**"),
         };
 
         http.authorizeHttpRequests(auto -> auto
