@@ -20,4 +20,8 @@ public class BoardService {
         List<Board> boards = boardRepository.findAll();
         return boards;
     }
+    public Board findById(int id) {
+        return boardRepository.findById(id).get();
+    }
+
 }
