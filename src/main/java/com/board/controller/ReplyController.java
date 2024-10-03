@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -39,9 +40,14 @@ public class ReplyController {
         return "redirect:/detail?id=" + boardId;
     }
 
-    public List<Reply> findAll(int boardId) {
-        List<Reply> replies = replyService.findAll(boardId);
-        return replies;
+    @PostMapping("/delete/{id}")
+    public String delete(@PathVariable int id, @ModelAttribute Reply reply, HttpServletRequest request) {
+        int boardId = Integer.parseInt(request.getParameter("boardId"));
+
+        int replyId = Integer.parseInt(request.getParameter("replyId"));
+        replyService.delete(replyId);
+
+        return "redirect:/detail?id=" + boardId;
     }
 
 }

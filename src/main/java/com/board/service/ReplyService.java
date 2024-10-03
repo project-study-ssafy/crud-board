@@ -37,5 +37,9 @@ public class ReplyService {
         repository.save(reply);
     }
 
+    public void delete(int replyId) {
+        repository.deleteById(replyId);
+    }
+
 
 }

@@ -12,7 +12,9 @@
                 <strong>${reply.user.nickname}</strong> - ${reply.createDate}
                 <p>${reply.content}
                 </p>
-                <form action="/board/" method="post" onsubmit="return confirm('정말로 삭제하시겠습니까?');">
+                <form action="/board/reply/delete/${reply.id}" method="post" onsubmit="return confirm('정말로 삭제하시겠습니까?');">
+                    <input type="hidden" name="boardId" value="${board.id}">
+                    <input type="hidden" name="replyId" value="${reply.id}">
                     <input type="hidden" name="_method" value="delete">
                     <button type="submit">삭제하기</button>
                 </form>
