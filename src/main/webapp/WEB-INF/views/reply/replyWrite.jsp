@@ -3,7 +3,7 @@
 
 <div class="comment-form">
     <h3>댓글 작성하기</h3>
-    <form action="/reply/save" method="post">
+    <form action="/board/reply/save" method="post">
         <input type="hidden" name="boardId" value="${board.id}">
         <textarea name="content" rows="5" cols="50" placeholder="댓글을 작성하세요"></textarea>
         <br>
