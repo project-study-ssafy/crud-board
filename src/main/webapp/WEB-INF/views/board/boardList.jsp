@@ -14,7 +14,7 @@
             <tr>
                     <td>${board.id}</td>
                     <td>
-                        <a href="boardDetail?id=${board.id}">
+                        <a href="detail?id=${board.id}">
                             ${board.title}
                         </a>
                     </td>
@@ -28,13 +28,12 @@
                     </td>
                 </tr>
             </c:if>
-        </tr>
         </c:forEach>
     </table>
     <br>
     <table>
         <tr>
-            <td><button onclick="location.href='write.html'">글쓰기</button></td>
+            <td><button onclick="location.href='/board/write'">글쓰기</button></td>
         </tr>
     </table>
 </main>

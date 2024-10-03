@@ -1,4 +1,6 @@
+<%@ page import="com.board.domain.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
+<% User loginUser = (User) session.getAttribute("loginUser"); %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -59,9 +61,14 @@
             <h1>게시판</h1>
             <nav>
                 <ul>
-                    <li><a href="#">홈</a></li>
-                    <li><a href="#">로그인</a></li>
-                    <li><a href="#">회원가입</a></li>
+                    <% if(loginUser == null) { %>
+                    <li><a href="/board/">홈</a></li>
+                    <li><a href="/board/login">로그인</a></li>
+                    <li><a href="/board/user/sign-up">회원가입</a></li>
+                    <% } else {%>
+                    <li><a href="/board/">홈</a></li>
+                    <li>현재 로그인 정보 : <%= loginUser.getNickname() %> </li>
+                    <% } %>
                 </ul>
             </nav>
         </div>
