@@ -16,7 +16,8 @@ public class ReplyService {
     private final ReplyRepository repository;
     private final BoardRepository boardRepository;
 
-//    public List<Reply> findAll(int boardId) {
-//
-//    }
+    public List<Reply> findAll(int boardId) {
+        return null;
+    }
+
 }

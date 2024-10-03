@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @Service
-@Transactional
+@Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class BoardService {
 
@@ -41,7 +41,7 @@ public class BoardService {
     }
 
     public void update(int id, BoardDto boardDto) {
-        Board board= (Board) boardRepository.findById(id).orElse(null);
+        Board board = boardRepository.findById(id).orElse(null);
 
         if (board != null) {
             board.update(boardDto.getTitle(), boardDto.getContent());

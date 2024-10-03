@@ -19,39 +19,20 @@
 
         <hr>
 
-        <div class="comments-section">
-            <h3>댓글</h3>
-            <c:if test="${empty board.replies}">
-                <p>아직 댓글이 없습니다.</p>
-            </c:if>
-<%--            <c:forEach var="reply" items="${board.replies}">--%>
-<%--                <div class="comment">--%>
-<%--                    <strong>${reply.user.nickname}</strong> - ${reply.createdDate}--%>
-<%--                    <p>${reply.content}</p>--%>
-<%--                </div>--%>
-<%--            </c:forEach>--%>
-        </div>
+        <%@ include file="../reply/replyList.jsp" %>
 
         <hr>
 
-        <div class="comment-form">
-            <h3>댓글 작성하기</h3>
-<%--            <form action="/reply/save" method="post">--%>
-<%--                <input type="hidden" name="boardId" value="${board.id}">--%>
-<%--                <textarea name="content" rows="5" cols="50" placeholder="댓글을 작성하세요"></textarea>--%>
-<%--                <br>--%>
-<%--                <button type="submit">댓글 작성</button>--%>
-<%--            </form>--%>
-        </div>
+        <%@ include file="../reply/replyWrite.jsp" %>
 
         <br>
 
         <div class="actions">
+            <button onclick="location.href='/board/update?id=${board.id}'">수정하기</button>
             <form action="/board/delete/${board.id}" method="post" onsubmit="return confirm('정말로 삭제하시겠습니까?');">
                 <input type="hidden" name="_method" value="delete">
                 <button type="submit">삭제하기</button>
             </form>
-            <button onclick="location.href='/board/update?id=${board.id}'">수정하기</button>
             <button onclick="location.href='/board/'">목록으로</button>
         </div>
     </div>
