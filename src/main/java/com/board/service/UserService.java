@@ -52,8 +52,9 @@ public class UserService {
         if (findUser != null && findUser.getId() != id) {
             throw new DuplicatedNicknameException();
         }
+        String encodedPassword = passwordEncoder.encode(userUpdateDto.getPassword());
 
-        user.update(userUpdateDto.getNickname(), userUpdateDto.getPassword());
+        user.update(userUpdateDto.getNickname(), encodedPassword);
         return user;
     }
 

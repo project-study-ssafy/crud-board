@@ -10,14 +10,20 @@
   cursor: pointer; /* 버튼 모양의 커서 */
 }
 
-.login-main {
+.login-main,
+.detail-main,
+.sign-up-main,
+.update-main {
   display: flex;
   justify-content: center; /* 수평 가운데 정렬 */
   align-items: center; /* 수직 가운데 정렬 */
   height: 100vh; /* 화면 전체 높이를 차지 */
 }
 
-.login-container {
+.login-container,
+.detail-container,
+.sign-up-container,
+.update-container {
   width: 100%;
   max-width: 500px; /* 가로 크기를 더 크게 설정 */
   min-height: 350px; /* 최소 높이를 설정 */
@@ -52,7 +58,8 @@
   cursor: pointer; /* 버튼 모양의 커서 */
 }
 
-fieldset.login-fieldset {
+fieldset.login-fieldset,
+fieldset.detail-fieldset {
   border: 0;
 }
 
@@ -88,6 +95,7 @@ fieldset.login-fieldset {
   border-radius: 10px; /* 모서리 둥글게 */
   font-weight: 800;
   background-color: #4caf50; /* 초록색 배경 */
+  /* 흰색 텍스트 */
   display: flex; /* Flexbox 사용 */
   align-items: center; /* 수직 가운데 정렬 */
   justify-content: center; /* 수평 가운데 정렬 */
@@ -97,6 +105,39 @@ fieldset.login-fieldset {
   background-color: #45a049; /* hover 시 더 진한 초록색 */
 }
 
-.login-btn:hover {
+.login-btn:hover,
+.update-btn:hover {
   background-color: rgb(27, 32, 90);
+}
+
+.delete-btn:hover {
+  background-color: rgb(80, 15, 15, 20);
+}
+
+.update-btn {
+  width: 100%; /* 버튼 너비를 100%로 */
+  font-size: 18px; /* 버튼 글자 크기 키우기 */
+  height: 50px;
+  color: white;
+  border-radius: 10px; /* 모서리 둥글게 */
+  font-weight: 800;
+  background-color: rgb(40, 46, 106, 69);
+  /* 흰색 텍스트 */
+  display: flex; /* Flexbox 사용 */
+  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: center; /* 수평 가운데 정렬 */
+  margin-bottom: 10px;
+}
+
+.delete-btn {
+  width: 100%; /* 버튼 너비를 100%로 */
+  padding: 10px; /* 버튼 높이 조정 */
+  font-size: 18px; /* 버튼 글자 크기 키우기 */
+  color: white;
+  background-color: rgb(100, 20, 20, 20);
+  border-radius: 10px; /* 모서리 둥글게 */
+  height: 50px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  cursor: pointer; /* 버튼 모양의 커서 */
 }
