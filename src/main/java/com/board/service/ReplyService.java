@@ -40,6 +40,4 @@ public class ReplyService {
     public void delete(int replyId) {
         repository.deleteById(replyId);
     }
-
-
 }

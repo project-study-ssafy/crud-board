@@ -29,12 +29,9 @@ public class Reply {
     @CreationTimestamp
     private Timestamp createDate;
 
-
     public Reply(String content, Board board, User user) {
         this.content = content;
         this.board = board;
         this.user = user;
     }
-
-
 }

@@ -1,7 +1,6 @@
 package com.board.dto.reply;
 
-import com.board.domain.Board;
-import com.board.domain.User;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,13 +10,12 @@ public class ReplyDto {
     private int id;
     private int boardId;
     private int userId;
+
+    @NotBlank(message = "내용을 입력해주세요.")
     private String content;
 
     public ReplyDto() {}
 
     public ReplyDto(int boardId, int userId, String content) {
-        this.boardId = boardId;
-        this.userId = userId;
-        this.content = content;
     }
 }
