@@ -62,8 +62,6 @@ public class SecurityConfig {
             mvc.pattern("/user/sign-up"),
             mvc.pattern("/WEB-INF/views/**"),
             mvc.pattern("/css/**"),
-            // 커밋 전에 삭제.
-            mvc.pattern("/**"),
         };
 
         http.authorizeHttpRequests(auto -> auto
