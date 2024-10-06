@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<%@ include file="header.jsp" %>
+<%@ include file="../layout/header.jsp" %>
 
 <main>
     <div class="board-update">
@@ -29,4 +29,4 @@
     </div>
 </main>
 
-<%@ include file="footer.jsp" %>
+<%@ include file="../layout/footer.jsp" %>
