@@ -2,6 +2,8 @@ package com.board.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
 import com.board.domain.Board;
@@ -13,6 +15,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -74,5 +77,21 @@ class BoardServiceTest {
     assertThrows(Exception.class, () -> {
       boardService.writeBoard(boardDto, user);
     });
+  }
+
+  @Test
+  void 게시판삭제_성공() {
+    doNothing().when(boardRepository).deleteById(anyInt());
+
+    boardService.deleteById(1);
+
+    Mockito.verify(boardRepository, Mockito.times(1)).deleteById(1);
+  }
+
+  @Test
+  void 게시판삭제_실패() {
+    doNothing().when(boardRepository).deleteById(anyInt());
+
+    assertDoesNotThrow(() -> boardService.deleteById(999));
   }
 }
