@@ -35,11 +35,6 @@ public class Board {
     @OrderBy("id desc")
     private final List<Reply> replies = new ArrayList<>();
 
-    public void update(String title, String content) {
-        this.title = title;
-        this.content = content;
-    }
-
     public Board(String title, String content, User user) {
         this.title = title;
         this.content = content;
