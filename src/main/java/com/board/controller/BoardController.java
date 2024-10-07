@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Slf4j
 @Controller
@@ -33,6 +34,13 @@ public class BoardController {
         model.addAttribute("boards", boards);
 
         return "home";
+    }
+
+    @GetMapping("/detail")
+    public String detailBoard(@RequestParam("id") int id, Model model) {
+        Board board = boardService.detailBoard(id);
+        model.addAttribute("board", board);
+        return "board/boardDetail";
     }
 
     @GetMapping("/write")

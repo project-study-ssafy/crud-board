@@ -22,6 +22,10 @@ public class BoardService {
     return boards;
   }
 
+  public Board detailBoard(int id) {
+    return boardRepository.findById(id).get();
+  }
+
   public Board writeBoard(BoardDto boardDto, User user) {
     String title = boardDto.getTitle();
     String content = boardDto.getContent();
