@@ -31,7 +31,7 @@ public class BoardService {
     return boardRepository.save(board);
   }
 
-  public void deleteById(int id) {
+  public void deleteBoard(int id) {
     boardRepository.deleteById(id);
   }
 
