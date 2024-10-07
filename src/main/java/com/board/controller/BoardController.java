@@ -24,6 +24,6 @@ public class BoardController {
 
         model.addAttribute("boards", boards);
 
-        return "board/boardList";
+        return "home";
     }
 }
