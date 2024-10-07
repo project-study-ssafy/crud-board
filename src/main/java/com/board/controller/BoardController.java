@@ -38,7 +38,7 @@ public class BoardController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute Board board, HttpServletRequest request) {
+    public String write(@ModelAttribute Board board, HttpServletRequest request) {
         BoardDto boardDto = new BoardDto();
         boardDto.setTitle(board.getTitle());
 
