@@ -40,14 +40,8 @@ public class BoardController {
 
     @PostMapping("/save")
     public String write(@ModelAttribute @Valid BoardDto boardDto, HttpServletRequest request) {
-        String title = request.getParameter("title");
-        String content = request.getParameter("content");
         User user = (User) request.getSession().getAttribute("loginUser");
-
-        boardDto.setTitle(title);
-        boardDto.setContent(content);
         boardDto.setUser(user);
-
         boardService.writeBoard(boardDto);
         return "redirect:/";
     }
