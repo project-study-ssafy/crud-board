@@ -7,6 +7,7 @@ import static org.mockito.Mockito.*;
 
 import com.board.domain.Board;
 import com.board.domain.Reply;
+import com.board.domain.User;
 import com.board.dto.reply.ReplyDto;
 import com.board.repository.BoardRepository;
 import com.board.repository.ReplyRepository;
@@ -42,7 +43,7 @@ class ReplyServiceTest {
     @Test
     void 댓글작성_성공() {
         ReplyDto replyDto = new ReplyDto(1, 1, "댓글 내용");
-        Board board = new Board();
+        Board board = new Board("아으아으", "으아으아", new User("1", "1", "1"));
 
         when(boardRepository.findById(anyInt())).thenReturn(Optional.of(board));
 
@@ -53,7 +54,7 @@ class ReplyServiceTest {
 
     @Test
     void 댓글작성_실패() {
-        ReplyDto replyDto = new ReplyDto(1, 1, "댓글 내용");
+        ReplyDto replyDto = new ReplyDto(1, 1, "");
 
         when(boardRepository.findById(anyInt())).thenReturn(Optional.empty());
 

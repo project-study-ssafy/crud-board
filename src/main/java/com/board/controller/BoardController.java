@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @Slf4j
 @Controller
 @RequestMapping("")
@@ -27,7 +26,7 @@ public class BoardController {
 
         model.addAttribute("boards", boards);
 
-        return "board/boardList";
+        return "/home";
     }
 
     @GetMapping("/detail")

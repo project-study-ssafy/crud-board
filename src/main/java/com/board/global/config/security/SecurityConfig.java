@@ -1,6 +1,5 @@
 package com.board.global.config.security;
 
-
 import com.board.global.config.security.handler.CustomAccessDeniedHandler;
 import com.board.global.config.security.handler.CustomAuthenticationEntryPointHandler;
 import com.board.global.config.security.handler.CustomLoginFailHandler;
@@ -62,6 +61,7 @@ public class SecurityConfig {
             mvc.pattern("/user/sign-up"),
             mvc.pattern("/WEB-INF/views/**"),
             mvc.pattern("/css/**"),
+            mvc.pattern("/error/**"),
         };
 
         http.authorizeHttpRequests(auto -> auto
