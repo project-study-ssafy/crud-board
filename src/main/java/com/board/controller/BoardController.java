@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -47,6 +48,12 @@ public class BoardController {
 
         User user = (User) request.getSession().getAttribute("loginUser");
         boardService.writeBoard(boardDto, user);
+        return "redirect:/";
+    }
+
+    @PostMapping("/delete/{id}")
+    public String deleteBoard(@PathVariable int id) {
+        boardService.deleteBoard(id);
         return "redirect:/";
     }
 }
