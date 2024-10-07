@@ -56,11 +56,11 @@ class BoardServiceTest {
   @Test
   void 게시판작성_성공() {
     User user = new User("123", "111111111", "임시유저");
-    BoardDto boardDto = new BoardDto("New Title", "New Content", user);
+    BoardDto boardDto = new BoardDto("New Title", "New Content");
     Board savedBoard = new Board("New Title", "New Content", user);
     when(boardRepository.save(any(Board.class))).thenReturn(savedBoard);
 
-    var result = boardService.writeBoard(boardDto);
+    var result = boardService.writeBoard(boardDto, user);
 
     assertNotNull(result);
     assertEquals("New Title", result.getTitle());
@@ -69,10 +69,10 @@ class BoardServiceTest {
   @Test
   void 게시판작성_실패() {
     User user = new User();
-    BoardDto boardDto = new BoardDto("", "", user);
+    BoardDto boardDto = new BoardDto("", "");
 
     assertThrows(Exception.class, () -> {
-      boardService.writeBoard(boardDto);
+      boardService.writeBoard(boardDto, user);
     });
   }
 }

@@ -22,10 +22,9 @@ public class BoardService {
     return boards;
   }
 
-  public Board writeBoard(BoardDto boardDto) {
+  public Board writeBoard(BoardDto boardDto, User user) {
     String title = boardDto.getTitle();
     String content = boardDto.getContent();
-    User user = boardDto.getUser();
 
     Board board = new Board(title, content, user);
 

@@ -46,8 +46,7 @@ public class BoardController {
         }
 
         User user = (User) request.getSession().getAttribute("loginUser");
-        boardDto.setUser(user);
-        boardService.writeBoard(boardDto);
+        boardService.writeBoard(boardDto, user);
         return "redirect:/";
     }
 }

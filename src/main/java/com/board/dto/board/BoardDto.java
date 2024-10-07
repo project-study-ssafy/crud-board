@@ -12,15 +12,14 @@ public class BoardDto {
 
   @NotBlank(message = "제목을 입력해주세요")
   private String title;
+
   @NotBlank(message = "내용을 입력해주세요")
   private String content;
-  private User user;
 
   public BoardDto() {}
 
-  public BoardDto(String newTitle, String newContent, User user) {
+  public BoardDto(String newTitle, String newContent) {
     this.title = newTitle;
     this.content = newContent;
-    this.user = user;
   }
 }
