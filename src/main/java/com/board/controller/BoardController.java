@@ -5,6 +5,7 @@ import com.board.domain.User;
 import com.board.dto.board.BoardDto;
 import com.board.service.BoardService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -38,20 +39,16 @@ public class BoardController {
     }
 
     @PostMapping("/save")
-    public String write(@ModelAttribute Board board, HttpServletRequest request) {
-        BoardDto boardDto = new BoardDto();
-        boardDto.setTitle(board.getTitle());
-
+    public String write(@ModelAttribute @Valid BoardDto boardDto, HttpServletRequest request) {
         String title = request.getParameter("title");
         String content = request.getParameter("content");
+        User user = (User) request.getSession().getAttribute("loginUser");
 
         boardDto.setTitle(title);
         boardDto.setContent(content);
-
-        User user = (User) request.getSession().getAttribute("loginUser");
         boardDto.setUser(user);
 
-        boardService.save(boardDto);
+        boardService.writeBoard(boardDto);
         return "redirect:/";
     }
 }

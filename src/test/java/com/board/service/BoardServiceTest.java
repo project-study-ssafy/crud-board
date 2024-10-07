@@ -60,7 +60,7 @@ class BoardServiceTest {
     Board savedBoard = new Board("New Title", "New Content", user);
     when(boardRepository.save(any(Board.class))).thenReturn(savedBoard);
 
-    var result = boardService.save(boardDto);
+    var result = boardService.writeBoard(boardDto);
 
     assertNotNull(result);
     assertEquals("New Title", result.getTitle());
@@ -72,7 +72,7 @@ class BoardServiceTest {
     BoardDto boardDto = new BoardDto("", "", user);
 
     assertThrows(Exception.class, () -> {
-      boardService.save(boardDto);
+      boardService.writeBoard(boardDto);
     });
   }
 }
