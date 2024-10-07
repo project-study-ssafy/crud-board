@@ -2,12 +2,14 @@ package com.board.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
 @Entity
 public class Board {
 
@@ -30,9 +32,16 @@ public class Board {
 
     @OneToMany(mappedBy = "board", fetch = FetchType.EAGER)
     @JsonIgnoreProperties({"board"})
-    @OrderBy("id asc")
+    @OrderBy("id desc")
     private final List<Reply> replies = new ArrayList<>();
 
+    public Board(String title, String content, User user) {
+        this.title = title;
+        this.content = content;
+        this.user = user;
+    }
 
+    public Board() {
 
+    }
 }
