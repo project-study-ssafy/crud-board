@@ -1,10 +1,12 @@
 package com.board.service;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 import com.board.domain.Board;
 import com.board.domain.User;
+import com.board.dto.board.BoardDto;
 import com.board.repository.BoardRepository;
 import jakarta.transaction.Transactional;
 import java.util.Arrays;
@@ -49,5 +51,28 @@ class BoardServiceTest {
     var boards = boardService.findAll();
 
     assertTrue(boards.isEmpty());
+  }
+
+  @Test
+  void 게시판작성_성공() {
+    User user = new User("123", "111111111", "임시유저");
+    BoardDto boardDto = new BoardDto("New Title", "New Content", user);
+    Board savedBoard = new Board("New Title", "New Content", user);
+    when(boardRepository.save(any(Board.class))).thenReturn(savedBoard);
+
+    var result = boardService.save(boardDto);
+
+    assertNotNull(result);
+    assertEquals("New Title", result.getTitle());
+  }
+
+  @Test
+  void 게시판작성_실패() {
+    User user = new User();
+    BoardDto boardDto = new BoardDto("", "", user);
+
+    assertThrows(Exception.class, () -> {
+      boardService.save(boardDto);
+    });
   }
 }
