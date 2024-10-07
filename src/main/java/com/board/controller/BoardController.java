@@ -19,7 +19,7 @@ public class BoardController {
     private final BoardService boardService;
 
     @GetMapping("/")
-    public String serachAll(Model model) {
+    public String searchAll(Model model) {
         List<Board> boards = boardService.findAll();
 
         model.addAttribute("boards", boards);
