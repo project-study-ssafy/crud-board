@@ -70,4 +70,27 @@ public class BoardController {
         boardService.deleteBoard(id);
         return "redirect:/";
     }
+
+    @GetMapping("/update")
+    public String updateForm(@RequestParam int id, Model model) {
+        try {
+            Board board = boardService.detailBoard(id);
+            model.addAttribute("board", board);
+            return "board/boardUpdate";
+        } catch (BoardNotFoundException e) {
+            return "redirect:/";
+        }
+    }
+
+    @PostMapping("/updateBoard")
+    public String update(@ModelAttribute BoardDto boardDto, HttpServletRequest request) {
+        try {
+            boardService.update(boardDto);
+
+            int id = Integer.parseInt(request.getParameter("id"));
+            return "redirect:/detail?id=" + id;
+        } catch (BoardNotFoundException e) {
+            return "redirect:/";
+        }
+    }
 }

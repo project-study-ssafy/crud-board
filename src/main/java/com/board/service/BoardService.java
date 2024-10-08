@@ -6,7 +6,6 @@ import com.board.dto.board.BoardDto;
 import com.board.global.exception.board.BoardNotFoundException;
 import com.board.repository.BoardRepository;
 import java.util.List;
-import java.util.Optional;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -46,4 +45,14 @@ public class BoardService {
     boardRepository.deleteById(id);
   }
 
+  public void update(BoardDto boardDto) throws BoardNotFoundException {
+    int id = boardDto.getId();
+    Board board = boardRepository.findById(id).orElse(null);
+
+    if (board == null) {
+      throw new BoardNotFoundException("그런 게시물 없음");
+    }
+
+    board.update(boardDto.getTitle(), boardDto.getContent());
+  }
 }
