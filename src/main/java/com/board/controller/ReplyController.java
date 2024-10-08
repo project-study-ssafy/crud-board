@@ -2,6 +2,7 @@ package com.board.controller;
 
 import com.board.domain.User;
 import com.board.dto.reply.ReplyDto;
+import com.board.global.exception.board.BoardNotFoundException;
 import com.board.service.ReplyService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -22,12 +23,17 @@ public class ReplyController {
 
     @PostMapping("/write")
     public String writeReply(@ModelAttribute @Valid ReplyDto replyDto, BindingResult bindingResult, HttpServletRequest request) {
+        if(bindingResult.hasErrors()) {
+            return "/";
+        }
+
         int boardId = Integer.parseInt(request.getParameter("boardId"));
-
         User user = (User) request.getSession().getAttribute("loginUser");
-
-        replyService.writeReply(replyDto, boardId, user);
-
+        try {
+            replyService.writeReply(replyDto, boardId, user);
+        } catch (BoardNotFoundException e) {
+            return "redirect:/board";
+        }
         return "redirect:/detail?id=" + boardId;
     }
 }
