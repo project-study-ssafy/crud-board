@@ -20,7 +20,7 @@
         <hr>
         <%@ include file="../reply/replyWrite.jsp" %>
         <hr>
-        
+        <%@ include file="../reply/replyList.jsp" %>
         <br>
 
         <div class="actions">

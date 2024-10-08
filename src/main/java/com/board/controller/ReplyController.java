@@ -3,6 +3,7 @@ package com.board.controller;
 import com.board.domain.User;
 import com.board.dto.reply.ReplyDto;
 import com.board.global.exception.board.BoardNotFoundException;
+import com.board.global.exception.reply.ReplyNotFoundException;
 import com.board.service.ReplyService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -38,6 +39,18 @@ public class ReplyController {
             replyService.writeReply(replyDto, boardId, user);
         } catch (BoardNotFoundException e) {
             return "redirect:/board";
+        }
+        return "redirect:/detail?id=" + boardId;
+    }
+
+    @PostMapping("/delete/{id}")
+    public String deleteReply(@PathVariable int id, HttpServletRequest request) {
+        int replyId = Integer.parseInt(request.getParameter("replyId"));
+        int boardId = Integer.parseInt(request.getParameter("boardId"));
+        try {
+            replyService.deleteReply(replyId);
+        } catch (ReplyNotFoundException e) {
+            return "/detail?id=" + boardId;
         }
         return "redirect:/detail?id=" + boardId;
     }
