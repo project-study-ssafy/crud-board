@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -21,13 +22,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ReplyController {
     private final ReplyService replyService;
 
-    @PostMapping("/write")
-    public String writeReply(@ModelAttribute @Valid ReplyDto replyDto, BindingResult bindingResult, HttpServletRequest request) {
+    @PostMapping("/write/{boardId}")
+    public String writeReply(
+            @ModelAttribute @Valid ReplyDto replyDto,
+            BindingResult bindingResult,
+            @PathVariable int boardId,
+            HttpServletRequest request) {
+
         if(bindingResult.hasErrors()) {
-            return "/";
+            return "/detail?id=" + boardId;
         }
 
-        int boardId = Integer.parseInt(request.getParameter("boardId"));
         User user = (User) request.getSession().getAttribute("loginUser");
         try {
             replyService.writeReply(replyDto, boardId, user);
