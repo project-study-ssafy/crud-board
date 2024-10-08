@@ -6,7 +6,7 @@
     <div class="board-update">
         <h2>게시물 수정</h2>
 
-        <form action="/board/updateBoard" method="post">
+        <form action="/board/update" method="post">
             <input type="hidden" name="id" value="${board.id}">
             <table class="table">
                 <tr>

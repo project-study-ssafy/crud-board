@@ -30,8 +30,9 @@ public class ReplyController {
             @PathVariable int boardId,
             HttpServletRequest request) {
 
+
         if(bindingResult.hasErrors()) {
-            return "/detail?id=" + boardId;
+            return "redirect:/detail?id=" + boardId;
         }
 
         User user = (User) request.getSession().getAttribute("loginUser");
