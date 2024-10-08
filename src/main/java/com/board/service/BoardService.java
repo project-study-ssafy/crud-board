@@ -5,6 +5,8 @@ import com.board.domain.User;
 import com.board.dto.board.BoardDto;
 import com.board.repository.BoardRepository;
 import java.util.List;
+import java.util.Optional;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +25,8 @@ public class BoardService {
   }
 
   public Board detailBoard(int id) {
-    return boardRepository.findById(id).get();
+    Optional<Board> board = boardRepository.findById(id);
+      return board.orElseGet(() -> boardRepository.findById(id).get());
   }
 
   public Board writeBoard(BoardDto boardDto, User user) {
