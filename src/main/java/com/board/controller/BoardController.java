@@ -13,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,7 +53,7 @@ public class BoardController {
         return "board/boardWrite";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/write")
     public String write(@ModelAttribute @Valid BoardDto boardDto, BindingResult bindingResult, HttpServletRequest request) {
         if (bindingResult.hasErrors()) {
             return "board/boardWrite";
@@ -69,5 +68,32 @@ public class BoardController {
     public String deleteBoard(@PathVariable int id) {
         boardService.deleteBoard(id);
         return "redirect:/";
+    }
+
+    @GetMapping("/update")
+    public String updateForm(@RequestParam int id, Model model) {
+        try {
+            Board board = boardService.detailBoard(id);
+            model.addAttribute("board", board);
+            return "board/boardUpdate";
+        } catch (BoardNotFoundException e) {
+            return "redirect:/";
+        }
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute @Valid BoardDto boardDto, BindingResult bindingResult, HttpServletRequest request) {
+        if (bindingResult.hasErrors()) {
+            return "board/boardUpdate";
+        }
+
+        try {
+            boardService.update(boardDto);
+
+            int id = Integer.parseInt(request.getParameter("id"));
+            return "redirect:/detail?id=" + id;
+        } catch (BoardNotFoundException e) {
+            return "redirect:/";
+        }
     }
 }

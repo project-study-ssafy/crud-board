@@ -9,6 +9,7 @@ import static org.mockito.Mockito.when;
 import com.board.domain.Board;
 import com.board.domain.User;
 import com.board.dto.board.BoardDto;
+import com.board.global.exception.board.BoardNotFoundException;
 import com.board.repository.BoardRepository;
 import jakarta.transaction.Transactional;
 import java.util.Arrays;
@@ -81,7 +82,7 @@ class BoardServiceTest {
   }
 
   @Test
-  void 게시판정보조회_성공() {
+  void 게시판정보조회_성공() throws BoardNotFoundException {
     Board board = new Board("title1", "content1", new User());
     when(boardRepository.findById(anyInt())).thenReturn(Optional.of(board));
 
@@ -95,8 +96,30 @@ class BoardServiceTest {
   void 게시판정보조회_실패() {
     when(boardRepository.findById(anyInt())).thenReturn(Optional.empty());
 
-    assertThrows(RuntimeException.class, () -> {
+    assertThrows(Exception.class, () -> {
       boardService.detailBoard(999);
+    });
+  }
+
+  @Test
+  void 게시판수정_성공() throws BoardNotFoundException {
+    Board existingBoard = new Board("Old Title", "Old Content", new User());
+    BoardDto updateDto = new BoardDto("Updated Title", "Updated Content");
+    when(boardRepository.findById(anyInt())).thenReturn(Optional.of(existingBoard));
+
+    boardService.update(updateDto);
+
+    assertEquals("Updated Title", existingBoard.getTitle());
+    assertEquals("Updated Content", existingBoard.getContent());
+  }
+
+  @Test
+  void 게시판수정_실패() {
+    BoardDto updateDto = new BoardDto("Updated Title", "Updated Content");
+    when(boardRepository.findById(anyInt())).thenReturn(Optional.empty());
+
+    assertThrows(Exception.class, () -> {
+      boardService.update(updateDto);
     });
   }
 
