@@ -53,7 +53,7 @@ public class BoardController {
         return "board/boardWrite";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/write")
     public String write(@ModelAttribute @Valid BoardDto boardDto, BindingResult bindingResult, HttpServletRequest request) {
         if (bindingResult.hasErrors()) {
             return "board/boardWrite";
@@ -81,7 +81,7 @@ public class BoardController {
         }
     }
 
-    @PostMapping("/updateBoard")
+    @PostMapping("/update")
     public String update(@ModelAttribute BoardDto boardDto, HttpServletRequest request) {
         try {
             boardService.update(boardDto);
