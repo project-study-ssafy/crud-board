@@ -43,10 +43,8 @@ public class ReplyController {
         return "redirect:/detail?id=" + boardId;
     }
 
-    @PostMapping("/delete/{id}")
-    public String deleteReply(@PathVariable int id, HttpServletRequest request) {
-        int replyId = Integer.parseInt(request.getParameter("replyId"));
-        int boardId = Integer.parseInt(request.getParameter("boardId"));
+    @PostMapping("/delete/{boardId}/{replyId}")
+    public String deleteReply(@PathVariable int boardId, @PathVariable int replyId) {
         try {
             replyService.deleteReply(replyId);
         } catch (ReplyNotFoundException e) {
