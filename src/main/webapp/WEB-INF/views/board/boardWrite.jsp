@@ -6,7 +6,7 @@
     <div class="board-write">
         <h2>게시물 작성</h2>
 
-        <form action="/board/save" method="post">
+        <form action="/board/write" method="post">
             <table class="table">
                 <tr>
                     <th>제목</th>
