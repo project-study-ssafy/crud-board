@@ -82,7 +82,11 @@ public class BoardController {
     }
 
     @PostMapping("/update")
-    public String update(@ModelAttribute BoardDto boardDto, HttpServletRequest request) {
+    public String update(@ModelAttribute @Valid BoardDto boardDto, BindingResult bindingResult, HttpServletRequest request) {
+        if (bindingResult.hasErrors()) {
+            return "board/boardUpdate";
+        }
+
         try {
             boardService.update(boardDto);
 
