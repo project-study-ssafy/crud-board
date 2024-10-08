@@ -18,7 +18,9 @@
         </div>
 
         <hr>
-
+        <%@ include file="../reply/replyWrite.jsp" %>
+        <hr>
+        
         <br>
 
         <div class="actions">
