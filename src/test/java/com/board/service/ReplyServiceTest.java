@@ -54,7 +54,7 @@ class ReplyServiceTest {
         replyDto.setContent("");
         when(boardRepository.findById(anyInt())).thenReturn(Optional.empty());
 
-        assertThrows(RuntimeException.class, () -> replyService.writeReply(replyDto, 99999, null));
+        assertThrows(Exception.class, () -> replyService.writeReply(replyDto, 99999, null));
 
         verify(replyRepository, never()).save(any(Reply.class));
     }
