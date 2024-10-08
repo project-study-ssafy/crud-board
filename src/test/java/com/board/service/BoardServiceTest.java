@@ -12,6 +12,7 @@ import com.board.dto.board.BoardDto;
 import com.board.repository.BoardRepository;
 import jakarta.transaction.Transactional;
 import java.util.Arrays;
+import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -80,10 +81,30 @@ class BoardServiceTest {
   }
 
   @Test
+  void 게시판정보조회_성공() {
+    Board board = new Board("title1", "content1", new User());
+    when(boardRepository.findById(anyInt())).thenReturn(Optional.of(board));
+
+    var result = boardService.detailBoard(1);
+
+    assertNotNull(result);
+    assertEquals("title1", result.getTitle());
+  }
+
+  @Test
+  void 게시판정보조회_실패() {
+    when(boardRepository.findById(anyInt())).thenReturn(Optional.empty());
+
+    assertThrows(RuntimeException.class, () -> {
+      boardService.detailBoard(999);
+    });
+  }
+
+  @Test
   void 게시판삭제_성공() {
     doNothing().when(boardRepository).deleteById(anyInt());
 
-    boardService.deleteById(1);
+    boardService.deleteBoard(1);
 
     Mockito.verify(boardRepository, Mockito.times(1)).deleteById(1);
   }
@@ -92,6 +113,6 @@ class BoardServiceTest {
   void 게시판삭제_실패() {
     doNothing().when(boardRepository).deleteById(anyInt());
 
-    assertDoesNotThrow(() -> boardService.deleteById(999));
+    assertDoesNotThrow(() -> boardService.deleteBoard(999));
   }
 }
