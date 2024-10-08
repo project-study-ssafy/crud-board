@@ -35,12 +35,6 @@ class ReplyServiceTest {
     @MockBean
     private BoardRepository boardRepository;
 
-
-    @BeforeEach
-    void setUp() {
-
-    }
-
     @Test
     void 댓글작성_성공() {
         ReplyDto replyDto = new ReplyDto();
