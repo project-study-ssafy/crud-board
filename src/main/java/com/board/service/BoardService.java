@@ -26,7 +26,7 @@ public class BoardService {
 
   public Board detailBoard(int id) {
     Optional<Board> board = boardRepository.findById(id);
-      return board.orElseGet(() -> boardRepository.findById(id).get());
+    return board.orElseGet(() -> boardRepository.findById(id).get());
   }
 
   public Board writeBoard(BoardDto boardDto, User user) {
