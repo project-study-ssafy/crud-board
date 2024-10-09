@@ -36,8 +36,12 @@ public class BoardController {
       Pageable pageable;
       
       //sortOrder에 따라서 정렬 순서 교체가 가능하면 좋을 것 같다.
-      if (sortOrder.equals("desc")) pageable = PageRequest.of(page - 1, 10, Sort.by("id").descending());
-      else pageable = PageRequest.of(page - 1, 10, Sort.by("id").ascending());
+      if (sortOrder.equals("desc")) {
+          pageable = PageRequest.of(page - 1, 10, Sort.by("id").descending());
+      }
+      else {
+          pageable = PageRequest.of(page - 1, 10, Sort.by("id").ascending());
+      }
 
       Page<Board> boards = boardService.getPagedBoards(pageable);
       model.addAttribute("boards", boards);

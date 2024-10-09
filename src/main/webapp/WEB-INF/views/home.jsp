@@ -12,10 +12,10 @@
         </tr>
         <form action="/board" method="get">
             <c:if test="${sortOrder eq 'desc'}">
-                <button type="submit" name="sortOrder" value="asc">ASC 순서</button>
+                <button type="submit" name="sortOrder" value="asc">최신순</button>
             </c:if>
             <c:if test="${sortOrder eq 'asc'}">
-                <button type="submit" name="sortOrder" value="desc">DESC 순서</button>
+                <button type="submit" name="sortOrder" value="desc">작성순</button>
             </c:if>
         </form>
         <c:if test="${not empty boards.content}">
@@ -30,11 +30,6 @@
                     <td>${board.user.nickname}</td>
                     <td>${board.createdDate}</td>
                 </tr>
-                <c:if test="${empty board}" >
-                    <tr>
-                        <td colspan="4">게시물이 없습니다.</td>
-                    </tr>
-                </c:if>
             </c:forEach>
         </c:if>
         <c:if test="${empty boards.content}">
