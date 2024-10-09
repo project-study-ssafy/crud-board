@@ -32,17 +32,6 @@ public class BoardService {
   }
 
   @Transactional(readOnly = true)
-  public List<Board> getBoardsAsc() {
-    List<Board> boards = boardRepository.findAllOrderByCreatedDateAsc();
-    return boards;
-  }
-
-  @Transactional(readOnly = true)
-  public List<Board> getBoardsDesc() {
-    List<Board> boards = boardRepository.findAllOrderByCreatedDateDesc();
-    return boards;
-  }
-
   public Board detailBoard(int id) throws BoardNotFoundException {
     Board board = boardRepository.findById(id).orElse(null);
     if (board == null) {
@@ -51,7 +40,6 @@ public class BoardService {
     return board;
   }
 
-  @Transactional(readOnly = true)
   public Board writeBoard(BoardDto boardDto, User user) {
     String title = boardDto.getTitle();
     String content = boardDto.getContent();

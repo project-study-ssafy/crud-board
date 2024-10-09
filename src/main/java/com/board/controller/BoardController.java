@@ -7,7 +7,6 @@ import com.board.global.exception.board.BoardNotFoundException;
 import com.board.service.BoardService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -32,26 +31,23 @@ public class BoardController {
 
     private final BoardService boardService;
 
-  @GetMapping("/")
-  public String getBoards(@RequestParam(defaultValue = "1") int page, Model model) {
-    Pageable pageable = PageRequest.of(page - 1, 10, Sort.by("id").descending());
-    Page<Board> boards = boardService.getPagedBoards(pageable);
-    model.addAttribute("boards", boards);
-    return "home";
-  }
-  @GetMapping("/asc")
-  public String getBoardsAsc(Model model) {
-    List<Board> boards = boardService.getBoardsAsc();
-    model.addAttribute("boards", boards);
-    return "home";
-  }
+    @GetMapping("/")
+    public String getBoards(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "desc") String sortOrder, Model model) {
+      Pageable pageable = null;
+      
+      //sortOrder에 따라서 정렬 순서 교체가 가능하면 좋을 것 같다.
+      if (sortOrder.equals("desc")) pageable = PageRequest.of(page - 1, 10, Sort.by("id").descending());
+      else pageable = PageRequest.of(page - 1, 10, Sort.by("id").ascending());
 
-  @GetMapping("/desc")
-  public String getBoardsDesc(Model model) {
-    List<Board> boards = boardService.getBoardsDesc();
-    model.addAttribute("boards", boards);
-    return "home";
-  }
+      Page<Board> boards = boardService.getPagedBoards(pageable);
+      model.addAttribute("boards", boards);
+
+      //버튼이 하나만 있으면 좋을 것 같다.
+      model.addAttribute("sortOrder", sortOrder);
+
+      return "home";
+    }
+
     @GetMapping("/detail")
     public String detailBoard(@RequestParam("id") int id, Model model) {
         try {

@@ -10,14 +10,17 @@
             <td>작성자</td>
             <td>작성날짜</td>
         </tr>
-        <form action="/board/asc" method="get">
-            <button type="submit">ASC 순서</button>
+        <form action="/board" method="get">
+            <c:if test="${sortOrder eq 'desc'}">
+                <button type="submit" name="sortOrder" value="asc">ASC 순서</button>
+            </c:if>
+            <c:if test="${sortOrder eq 'asc'}">
+                <button type="submit" name="sortOrder" value="desc">DESC 순서</button>
+            </c:if>
         </form>
-        <form action="/board/desc" method="get">
-            <button type="submit">DESC 순서</button>
-        </form>
-        <c:forEach var="board" items="${boards}">
-            <tr>
+        <c:if test="${not empty boards.content}">
+            <c:forEach var="board" items="${boards.content}">
+                <tr>
                     <td>${board.id}</td>
                     <td>
                         <a href="detail?id=${board.id}">
@@ -26,15 +29,19 @@
                     </td>
                     <td>${board.user.nickname}</td>
                     <td>${board.createdDate}</td>
-            </tr>
-            <c:if test="${empty board}" >
-                <tr>
-                    <td colspan="4">
-                        null
-                    </td>
                 </tr>
-            </c:if>
-        </c:forEach>
+                <c:if test="${empty board}" >
+                    <tr>
+                        <td colspan="4">게시물이 없습니다.</td>
+                    </tr>
+                </c:if>
+            </c:forEach>
+        </c:if>
+        <c:if test="${empty boards.content}">
+            <tr>
+                <td colspan="4">게시물이 아예 없네용</td>
+            </tr>
+        </c:if>
     </table>
 
     <ul>
