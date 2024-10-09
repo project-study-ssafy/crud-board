@@ -19,8 +19,14 @@ public class BoardService {
   private final BoardRepository boardRepository;
 
   @Transactional(readOnly = true)
-  public List<Board> findAll() {
+  public List<Board> getBoards() {
     List<Board> boards = boardRepository.findAll();
+    return boards;
+  }
+
+  @Transactional(readOnly = true)
+  public List<Board> getBoardsAsc() {
+    List<Board> boards = boardRepository.findAllOrderByCreatedDateAsc();
     return boards;
   }
 

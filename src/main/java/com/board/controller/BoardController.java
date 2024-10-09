@@ -30,12 +30,20 @@ public class BoardController {
 
     @GetMapping("/")
     public String searchAll(Model model) {
-        List<Board> boards = boardService.findAll();
+        List<Board> boards = boardService.getBoards();
 
         model.addAttribute("boards", boards);
 
         return "home";
     }
+
+    @GetMapping("/asc")
+    public String searchAsc(Model model) {
+        List<Board> boards = boardService.getBoardsAsc();
+        model.addAttribute("boards", boards);
+        return "home";
+    }
+
 
     @GetMapping("/detail")
     public String detailBoard(@RequestParam("id") int id, Model model) {
