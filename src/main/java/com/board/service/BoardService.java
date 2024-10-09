@@ -30,6 +30,12 @@ public class BoardService {
     return boards;
   }
 
+  @Transactional(readOnly = true)
+  public List<Board> getBoardsDesc() {
+    List<Board> boards = boardRepository.findAllOrderByCreatedDateDesc();
+    return boards;
+  }
+
   public Board detailBoard(int id) throws BoardNotFoundException {
     Board board = boardRepository.findById(id).orElse(null);
     if (board == null) {

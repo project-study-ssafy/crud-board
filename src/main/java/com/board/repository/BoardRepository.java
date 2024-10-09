@@ -8,4 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface BoardRepository extends JpaRepository<Board, Integer> {
   @Query("SELECT a FROM Board a ORDER BY 1 asc")
   List<Board> findAllOrderByCreatedDateAsc();
+
+  @Query("SELECT a FROM Board a ORDER BY 1 desc")
+  List<Board> findAllOrderByCreatedDateDesc();
 }

@@ -44,6 +44,12 @@ public class BoardController {
         return "home";
     }
 
+    @GetMapping("/desc")
+    public String searchDesc(Model model) {
+        List<Board> boards = boardService.getBoardsDesc();
+        model.addAttribute("boards", boards);
+        return "home";
+    }
 
     @GetMapping("/detail")
     public String detailBoard(@RequestParam("id") int id, Model model) {
