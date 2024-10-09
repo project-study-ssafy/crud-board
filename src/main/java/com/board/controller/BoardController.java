@@ -10,6 +10,10 @@ import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,29 +32,26 @@ public class BoardController {
 
     private final BoardService boardService;
 
-    @GetMapping("/")
-    public String searchAll(Model model) {
-        List<Board> boards = boardService.getBoards();
+  @GetMapping("/")
+  public String getBoards(@RequestParam(defaultValue = "1") int page, Model model) {
+    Pageable pageable = PageRequest.of(page - 1, 10, Sort.by("id").descending());
+    Page<Board> boards = boardService.getPagedBoards(pageable);
+    model.addAttribute("boards", boards);
+    return "home";
+  }
+  @GetMapping("/asc")
+  public String getBoardsAsc(Model model) {
+    List<Board> boards = boardService.getBoardsAsc();
+    model.addAttribute("boards", boards);
+    return "home";
+  }
 
-        model.addAttribute("boards", boards);
-
-        return "home";
-    }
-
-    @GetMapping("/asc")
-    public String searchAsc(Model model) {
-        List<Board> boards = boardService.getBoardsAsc();
-        model.addAttribute("boards", boards);
-        return "home";
-    }
-
-    @GetMapping("/desc")
-    public String searchDesc(Model model) {
-        List<Board> boards = boardService.getBoardsDesc();
-        model.addAttribute("boards", boards);
-        return "home";
-    }
-
+  @GetMapping("/desc")
+  public String getBoardsDesc(Model model) {
+    List<Board> boards = boardService.getBoardsDesc();
+    model.addAttribute("boards", boards);
+    return "home";
+  }
     @GetMapping("/detail")
     public String detailBoard(@RequestParam("id") int id, Model model) {
         try {
