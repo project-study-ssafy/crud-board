@@ -10,20 +10,28 @@
             <td>작성자</td>
             <td>작성날짜</td>
         </tr>
-
-        <c:forEach var="board" items="${boards.content}">
-            <tr>
-                <td>${board.id}</td>
-                <td>
-                    <a href="detail?id=${board.id}">
+        <form action="/board" method="get">
+            <c:if test="${sortOrder eq 'desc'}">
+                <button type="submit" name="sortOrder" value="asc">최신순</button>
+            </c:if>
+            <c:if test="${sortOrder eq 'asc'}">
+                <button type="submit" name="sortOrder" value="desc">작성순</button>
+            </c:if>
+        </form>
+        <c:if test="${not empty boards.content}">
+            <c:forEach var="board" items="${boards.content}">
+                <tr>
+                    <td>${board.id}</td>
+                    <td>
+                        <a href="detail?id=${board.id}">
                             ${board.title}
-                    </a>
-                </td>
-                <td>${board.user.nickname}</td>
-                <td>${board.createdDate}</td>
-            </tr>
-        </c:forEach>
-
+                        </a>
+                    </td>
+                    <td>${board.user.nickname}</td>
+                    <td>${board.createdDate}</td>
+                </tr>
+            </c:forEach>
+        </c:if>
         <c:if test="${empty boards.content}">
             <tr>
                 <td colspan="4">게시물이 없습니다.</td>

@@ -31,7 +31,6 @@ public class BoardService {
     return boardRepository.findAll(pageable); // 리포지토리를 통해 데이터 조회
   }
 
-
   @Transactional(readOnly = true)
   public Board detailBoard(int id) throws BoardNotFoundException {
     Board board = boardRepository.findById(id).orElse(null);

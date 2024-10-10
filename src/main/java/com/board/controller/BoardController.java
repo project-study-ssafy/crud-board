@@ -32,11 +32,24 @@ public class BoardController {
     private final BoardService boardService;
 
     @GetMapping("/")
-    public String getBoards(@RequestParam(defaultValue = "1") int page, Model model) {
-        Pageable pageable = PageRequest.of(page - 1, 10, Sort.by("id").descending());
-        Page<Board> boards = boardService.getPagedBoards(pageable);
-        model.addAttribute("boards", boards);
-        return "home";
+    public String getBoards(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "desc") String sortOrder, Model model) {
+      Pageable pageable;
+      
+      //sortOrder에 따라서 정렬 순서 교체가 가능하면 좋을 것 같다.
+      if (sortOrder.equals("desc")) {
+          pageable = PageRequest.of(page - 1, 10, Sort.by("id").descending());
+      }
+      else {
+          pageable = PageRequest.of(page - 1, 10, Sort.by("id").ascending());
+      }
+
+      Page<Board> boards = boardService.getPagedBoards(pageable);
+      model.addAttribute("boards", boards);
+
+      //버튼이 하나만 있으면 좋을 것 같다.
+      model.addAttribute("sortOrder", sortOrder);
+
+      return "home";
     }
 
     @GetMapping("/detail")
