@@ -32,24 +32,30 @@ public class BoardController {
     private final BoardService boardService;
 
     @GetMapping("/")
-    public String getBoards(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "desc") String sortOrder, Model model) {
-      Pageable pageable;
-      
-      //sortOrder에 따라서 정렬 순서 교체가 가능하면 좋을 것 같다.
-      if (sortOrder.equals("desc")) {
-          pageable = PageRequest.of(page - 1, 10, Sort.by("id").descending());
-      }
-      else {
-          pageable = PageRequest.of(page - 1, 10, Sort.by("id").ascending());
-      }
+    public String getBoards(@RequestParam(defaultValue = "1") int page,
+        @RequestParam(defaultValue = "desc") String sortOrder,
+        @RequestParam(defaultValue = "") String keyword, Model model) {
+        Pageable pageable;
 
-      Page<Board> boards = boardService.getPagedBoards(pageable);
-      model.addAttribute("boards", boards);
+        //sortOrder에 따라서 정렬 순서 교체가 가능하면 좋을 것 같다.
+        if (sortOrder.equals("desc")) {
+            pageable = PageRequest.of(page - 1, 10, Sort.by("id").descending());
+        } else {
+            pageable = PageRequest.of(page - 1, 10, Sort.by("id").ascending());
+        }
 
-      //버튼이 하나만 있으면 좋을 것 같다.
-      model.addAttribute("sortOrder", sortOrder);
+        Page<Board> boards;
+        if (keyword.isEmpty()) {
+            boards = boardService.getPagedBoards(pageable);
+        } else {
+            boards = boardService.searchBoards(keyword, pageable);
+        }
+        model.addAttribute("boards", boards);
 
-      return "home";
+        //버튼이 하나만 있으면 좋을 것 같다.
+        model.addAttribute("sortOrder", sortOrder);
+
+        return "home";
     }
 
     @GetMapping("/detail")
@@ -69,7 +75,8 @@ public class BoardController {
     }
 
     @PostMapping("/write")
-    public String write(@ModelAttribute @Valid BoardDto boardDto, BindingResult bindingResult, HttpServletRequest request) {
+    public String write(@ModelAttribute @Valid BoardDto boardDto, BindingResult bindingResult,
+        HttpServletRequest request) {
         if (bindingResult.hasErrors()) {
             return "board/boardWrite";
         }
@@ -97,7 +104,8 @@ public class BoardController {
     }
 
     @PostMapping("/update")
-    public String update(@ModelAttribute @Valid BoardDto boardDto, BindingResult bindingResult, HttpServletRequest request) {
+    public String update(@ModelAttribute @Valid BoardDto boardDto, BindingResult bindingResult,
+        HttpServletRequest request) {
         if (bindingResult.hasErrors()) {
             return "board/boardUpdate";
         }
