@@ -34,7 +34,7 @@
         </c:if>
         <c:if test="${empty boards.content}">
             <tr>
-                <td colspan="4">게시물이 아예 없네용</td>
+                <td colspan="4">게시물이 없습니다.</td>
             </tr>
         </c:if>
     </table>
