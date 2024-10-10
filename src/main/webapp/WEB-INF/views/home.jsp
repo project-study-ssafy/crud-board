@@ -3,14 +3,17 @@
 <%@ include file="layout/header.jsp" %>
 <main>
     <table class="table">
-        <tr><td colspan="4"><h2>게시판</h2></td></tr>
+        <tr>
+            <td colspan="4"><h2>게시판</h2></td>
+        </tr>
         <tr class="header">
             <td class="num">번호</td>
             <td class="title">제목</td>
             <td>작성자</td>
             <td>작성날짜</td>
         </tr>
-        <form action="/board" method="get">
+
+        <form action="${pageContext.request.contextPath}" method="get">
             <c:if test="${sortOrder eq 'desc'}">
                 <button type="submit" name="sortOrder" value="asc">최신순</button>
             </c:if>
@@ -18,13 +21,22 @@
                 <button type="submit" name="sortOrder" value="desc">작성순</button>
             </c:if>
         </form>
+
+        <form action="${pageContext.request.contextPath}" method="get">
+            <label>
+                <input type="text" name="keyword" placeholder="검색어를 입력하세요"/>
+            </label>
+            <button type="submit">검색</button>
+        </form>
+
+
         <c:if test="${not empty boards.content}">
             <c:forEach var="board" items="${boards.content}">
                 <tr>
                     <td>${board.id}</td>
                     <td>
-                        <a href="detail?id=${board.id}">
-                            ${board.title}
+                        <a href="${pageContext.request.contextPath}/detail?id=${board.id}">
+                                ${board.title}
                         </a>
                     </td>
                     <td>${board.user.nickname}</td>
@@ -45,7 +57,8 @@
                 <li><a href="?page=${boards.number}">Previous</a></li>
             </c:when>
             <c:otherwise>
-                <li>Previous</li> <!-- Previous 링크 비활성화 -->
+                <li>Previous</li>
+                <!-- Previous 링크 비활성화 -->
             </c:otherwise>
         </c:choose>
 
@@ -75,7 +88,8 @@
                 <li><a href="?page=${boards.number + 2}">Next</a></li>
             </c:when>
             <c:otherwise>
-                <li>Next</li> <!-- Next 링크 비활성화 -->
+                <li>Next</li>
+                <!-- Next 링크 비활성화 -->
             </c:otherwise>
         </c:choose>
     </ul>
@@ -83,7 +97,9 @@
     <br>
     <table>
         <tr>
-            <td><button onclick="location.href='/board/write'">글쓰기</button></td>
+            <td>
+                <button onclick="location.href='/board/write'">글쓰기</button>
+            </td>
         </tr>
     </table>
 </main>
