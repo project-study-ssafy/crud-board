@@ -4,18 +4,16 @@
 
 <main>
     <div class="board-write">
-        <h2>게시물 작성</h2>
-
         <form action="/board/write" method="post">
             <table class="table">
                 <tr>
                     <th>제목</th>
-                    <td><input type="text" name="title" placeholder="제목을 입력하세요" required></td>
+                    <td><input class="write-title" type="text" name="title" placeholder="제목을 입력하세요" required></td>
                 </tr>
                 <tr>
                     <th>내용</th>
                     <td>
-                        <textarea name="content" rows="10" placeholder="내용을 입력하세요" required></textarea>
+                        <textarea class="write-content" name="content" rows="10" placeholder="내용을 입력하세요" required></textarea>
                     </td>
                 </tr>
             </table>
