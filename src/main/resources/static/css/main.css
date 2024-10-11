@@ -1,7 +1,236 @@
-* {
-  margin: 0;
+.container {
+  max-width: 1200px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.home {
+  margin-left: 100px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+header {
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding-bottom: 10px;
+  display:flex;
+  justify-content: space-between;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: darkblue;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: #ffffff;
+}
+.navul {
+  list-style-type: none;
   padding: 0;
-  border: 0;
+}
+.navul li {
+  display: inline;
+  margin-right: 15px;
+}
+button {
+  background-color: darkblue;
+  color: #ffffff;
+  border-radius: 4px;
+  margin-right: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.write-button {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 4px;
+  margin-right: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: rgb(27, 32, 90);
+  cursor: pointer;
+}
+.write-button:hover {
+  background-color: #f2f2f2;
+  color: #000000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.footer-container {
+  max-width: 100%;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-container li {
+
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 60px;
+}
+.table {
+  width: 80%;
+  margin: 20px 0;
+  border-collapse: collapse;
+  border: 3px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.comments-section {
+  width: 100%;
+}
+.comments-table {
+  width: 100%;
+  text-align: center;
+}
+.board-header,
+.board-meta {
+  display: flex;
+  justify-content: space-between;
+}
+.table .header {
+  background-color: #EFF3FF;
+}
+.table td, .table th {
+  border-bottom: 1px solid #ccc;
+  border-left: none;
+  border-right: none;
+  padding: 8px;
+  text-align: center;
+}
+.table th:first-child, .table td:first-child {
+  border-left: 2px solid #ccc;
+}
+
+.table th:last-child, .table td:last-child {
+  border-right: 2px solid #ccc;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-flex;
+  margin: 0 5px;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 800;
+}
+a:visited {
+  color: inherit;
+}
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  width: 80%;
+}
+.button-container form {
+  flex: 1; /* 폼이 동일한 비율로 공간을 차지하게 함 */
+  text-align: center;
+}
+.search-bar {
+  margin-top: 15px;
+}
+.search-bar input {
+  border-radius: 4px;
+  color: #000000;
+  background-color: #EFF3FF;
+  padding-top: 12px;
+  padding-bottom: 10px;
+  padding-right: 60px
+}
+.search-bar input::placeholder {
+  color: #000000;
+  bold: 800;
+}
+.board-content {
+  min-width: 300px; /* Set your desired minimum width */
+  min-height: 150px; /* Set your desired minimum height */
+  padding: 10px; /* Optional: Add padding for better spacing */
+  box-sizing: border-box; /* Include padding/border in the width/height */
+}
+.board-write,
+.board-detail,
+.board-update
+{
+  margin-top: 20px;
+  padding-bottom: 20px;
+  width: 80%;
+  justify-content: center;
+}
+
+.board-write,
+.board-update
+{
+  width: 100%;
+  max-width: 800px; /* 원하는 최대 너비 설정 */
+  margin: 50px auto; /* 상단 여백 추가 및 중앙 정렬 */
+  padding: 20px; /* 내부 여백 추가 (선택 사항) */
+  background-color: #EFF3FF; /* 배경색 (선택 사항) */
+  border-radius: 8px; /* 모서리 둥글게 (선택 사항) */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 (선택 사항) */
+}
+
+.form-group {
+  margin-bottom: 15px; /* 각 입력 그룹 간의 간격 */
+}
+
+.form-group label {
+  display: block; /* 레이블을 블록 요소로 설정하여 줄 바꿈 */
+  margin-bottom: 5px; /* 레이블과 입력 필드 간의 간격 */
+}
+
+.write-title,
+.write-content {
+  width: 100%; /* 입력 필드의 너비를 100%로 설정 */
+  box-sizing: border-box; /* 패딩과 보더를 포함한 너비 계산 */
+}
+
+.write-content {
+  resize: none; /* 크기 조정 불가능 설정 */
+}
+
+.reply-write {
+
+}
+
+.write-reply-content {
+  width: 100%; /* Full width of the parent */
+  resize: none; /* Disable resizing */
+  box-sizing: border-box; /* Include padding/border in the width */
+}
+
+.comment {
+  margin-top: 10px; /* Space above the actions */
+}
+
+.reply-delete {
+  background-color: #ff4d4d; /* Optional: color for the delete button */
+  color: white; /* Button text color */
+  border: none;
+  padding: 5px 10px; /* Padding for the button */
+  cursor: pointer; /* Cursor change on hover */
+}
+
+.actions {
+  display: flex; /* flexbox 사용 */
+  justify-content: flex-end; /* 오른쪽 정렬 */
 }
 
 .btn {
@@ -17,7 +246,7 @@
   display: flex;
   justify-content: center; /* 수평 가운데 정렬 */
   align-items: center; /* 수직 가운데 정렬 */
-  height: 100vh; /* 화면 전체 높이를 차지 */
+  height: 70vh; /* 화면 전체 높이를 차지 */
 }
 
 .login-container,
@@ -87,15 +316,14 @@ fieldset.detail-fieldset {
 }
 
 /* 회원가입 버튼 스타일 */
-.sign-up-btn {
+fieldset .sign-up-btn {
   width: 100%; /* 버튼 너비를 100%로 */
   font-size: 18px; /* 버튼 글자 크기 키우기 */
   height: 50px;
-  color: white;
+  color: #ffffff;
   border-radius: 10px; /* 모서리 둥글게 */
   font-weight: 800;
   background-color: #4caf50; /* 초록색 배경 */
-  /* 흰색 텍스트 */
   display: flex; /* Flexbox 사용 */
   align-items: center; /* 수직 가운데 정렬 */
   justify-content: center; /* 수평 가운데 정렬 */

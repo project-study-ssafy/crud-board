@@ -16,7 +16,7 @@
                 </form>
             </li>
             <li>
-                <button onclick="location.href='/board/write'">글쓰기</button>
+                <button class="write-button" onclick="location.href='/board/write'">글쓰기</button>
             </li>
         </ul>
         <div class="search-bar">

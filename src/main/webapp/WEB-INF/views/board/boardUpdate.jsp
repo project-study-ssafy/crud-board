@@ -6,18 +6,14 @@
     <div class="board-update">
         <form action="/board/update" method="post">
             <input type="hidden" name="id" value="${board.id}">
-            <table class="table">
-                <tr>
-                    <th>제목</th>
-                    <td><input type="text" name="title" value="${board.title}" required></td>
-                </tr>
-                <tr>
-                    <th>내용</th>
-                    <td>
-                        <textarea name="content" rows="10" required>${board.content}</textarea>
-                    </td>
-                </tr>
-            </table>
+            <div class="form-group">
+                <label for="title">제목</label>
+                <input class="write-title" type="text" id="title" name="title" value="${board.title}" placeholder="내용을 입력하세요" required>
+            </div>
+            <div class="form-group">
+                <label for="content">내용</label>
+                <textarea class="write-content" id="content" name="content" rows="10" placeholder="내용을 입력하세요" required>${board.content}</textarea>
+            </div>
             <br>
             <div class="actions">
                 <button type="submit">수정 완료</button>
