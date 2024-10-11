@@ -333,16 +333,16 @@ fieldset .sign-up-btn {
   background-color: #45a049; /* hover 시 더 진한 초록색 */
 }
 
-.login-btn:hover,
-.update-btn:hover {
+fieldset .login-btn:hover,
+fieldset .update-btn:hover {
   background-color: rgb(27, 32, 90);
 }
 
-.delete-btn:hover {
+fieldset .delete-btn:hover {
   background-color: rgb(80, 15, 15, 20);
 }
 
-.update-btn {
+fieldset .update-btn {
   width: 100%; /* 버튼 너비를 100%로 */
   font-size: 18px; /* 버튼 글자 크기 키우기 */
   height: 50px;

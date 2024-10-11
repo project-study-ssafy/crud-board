@@ -17,10 +17,14 @@
                     <td><strong>${reply.user.nickname}</strong></td>
                     <td colspan="5">${reply.content}</td>
                     <td>
-                        <form action="/board/reply/delete/${board.id}/${reply.id}" method="post" onsubmit="return confirm('정말로 삭제하시겠습니까?');">
-                            <input type="hidden" name="_method" value="delete">
-                            <fmt:formatDate value="${reply.createDate}" pattern="YYYY/MM/dd HH:mm:ss"/> <c:if test="${loginUser.id} eq ${reply.user.id}"> <button class="reply-delete" type="submit">삭제하기</button> </c:if>
-                        </form>
+                        <fmt:formatDate value="${reply.createDate}" pattern="YYYY/MM/dd HH:mm:ss"/>
+                        <c:if test="${loginUser.id eq reply.user.id}">
+                            <form action="/board/reply/delete/${board.id}/${reply.id}" method="post"
+                                  onsubmit="return confirm('정말로 삭제하시겠습니까?');">
+                                <input type="hidden" name="_method" value="delete">
+                                <button class="reply-delete" type="submit">삭제하기</button>
+                            </form>
+                        </c:if>
                     </td>
                 </tr>
             </c:forEach>

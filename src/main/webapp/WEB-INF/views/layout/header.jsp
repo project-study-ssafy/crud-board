@@ -22,7 +22,8 @@
                     <li><a href="/board/login">로그인</a></li>
                     <li><a href="/board/user/sign-up">회원가입</a></li>
                     <% } else {%>
-                    <li>현재 로그인 정보 : <%= loginUser.getNickname() %> </li>
+                    <li><a href="/board/logout">로그아웃</a></li>
+                    <li><a href="/board/user/detail/${loginUser.id}">회원정보</a></li>
                     <% } %>
                 </ul>
             </nav>

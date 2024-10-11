@@ -1,8 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <%@ include file="../layout/header.jsp"%>
-
 <div class="login-main">
     <div class="login-container">
         <form action="${pageContext.request.contextPath}/login" method="post">
