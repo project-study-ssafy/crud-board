@@ -1,15 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main.css">
-</head>
-
+<%@ include file="../layout/header.jsp"%>
 <div class="login-main">
     <div class="login-container">
         <form action="${pageContext.request.contextPath}/login" method="post">
@@ -47,8 +38,12 @@
                 <br/>
 
                 <button class="login-btn">로그인</button>
+                <div>
+                    <a href="${pageContext.request.contextPath}/user/sign-up" class="btn sign-up-btn">회원가입</a>
+                </div>
             </fieldset>
-            <a href="${pageContext.request.contextPath}/user/sign-up" class="btn sign-up-btn">회원가입</a>
         </form>
     </div>
 </div>
+
+<%@ include file="../layout/footer.jsp"%>
