@@ -25,7 +25,7 @@
                         id="password"
                         placeholder="Enter password"
                         name="password"
-                        value="${user.password}"
+                        value="********"
                         readonly
                 />
             </div>
