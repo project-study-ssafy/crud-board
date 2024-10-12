@@ -28,7 +28,6 @@
                         id="password"
                         placeholder="Enter password"
                         name="password"
-                        value="${user.password}"
                 />
                 <spring:hasBindErrors name="userUpdateDto">
                     <c:if test="${errors.hasFieldErrors('password') }">
