@@ -43,37 +43,37 @@
 
 ### 화면 구성 🖥️
 - **메인화면(게시판목록)** <br/>
-    <img src="https://github.com/user-attachments/assets/6888eb0f-cfb9-4722-85f6-e520b7ae190c" width="520px;" alt=""/>
-    <img src="https://github.com/user-attachments/assets/883d3949-bb4e-4dc3-a226-a143936e350d" width="520px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/6888eb0f-cfb9-4722-85f6-e520b7ae190c" width="1000px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/883d3949-bb4e-4dc3-a226-a143936e350d" width="1000px;" alt=""/>
 - **메인화면(ID순 정렬)** <br/>
-    <img src="https://github.com/user-attachments/assets/42185bc2-8b5a-43d3-93ad-babb252facca" width="520px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/42185bc2-8b5a-43d3-93ad-babb252facca" width="1000px;" alt=""/>
 - **메인화면(페이징)** <br/>
-    <img src="https://github.com/user-attachments/assets/5cb20bd7-be14-48d0-b38b-e4e8ebed5957" width="520px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/5cb20bd7-be14-48d0-b38b-e4e8ebed5957" width="1000px;" alt=""/>
 - **로그인화면** <br/>
-    <img src="https://github.com/user-attachments/assets/f3d19ba0-4cba-412d-a53f-11145f12ea6c" width="520px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/f3d19ba0-4cba-412d-a53f-11145f12ea6c" width="1000px;" alt=""/>
 - **회원정보** <br/>
-    <img src="https://github.com/user-attachments/assets/50d68453-aea5-42c3-b7ae-a60147430195" width="520px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/50d68453-aea5-42c3-b7ae-a60147430195" width="1000px;" alt=""/>
 - **회원정보수정기능** <br/>
-    <img src="https://github.com/user-attachments/assets/9fc9827a-f14e-4cf4-96d5-84dcb6045940" width="520px;" alt=""/>
-    <img src="https://github.com/user-attachments/assets/03af9db3-e7d4-4e4d-bd4e-6d1694e97843" width="520px;" alt=""/>
-    <img src="https://github.com/user-attachments/assets/7f81420f-8fc1-4869-b160-c6f8ad719a30" width="520px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/9fc9827a-f14e-4cf4-96d5-84dcb6045940" width="1000px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/03af9db3-e7d4-4e4d-bd4e-6d1694e97843" width="1000px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/7f81420f-8fc1-4869-b160-c6f8ad719a30" width="1000px;" alt=""/>
 - **게시글작성** <br/>
-    <img src="https://github.com/user-attachments/assets/f0fe413b-85b4-44e1-8cca-e60feb606f34" width="520px;" alt=""/>
-    <img src="https://github.com/user-attachments/assets/be3f6650-e1f1-4cac-a3de-6be9c9d90b3c" width="520px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/f0fe413b-85b4-44e1-8cca-e60feb606f34" width="1000px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/be3f6650-e1f1-4cac-a3de-6be9c9d90b3c" width="1000px;" alt=""/>
 - **게시글조회** <br/>
-    <img src="https://github.com/user-attachments/assets/8b745f5d-738a-4bd6-bf95-f9adcc1023c5" width="520px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/8b745f5d-738a-4bd6-bf95-f9adcc1023c5" width="1000px;" alt=""/>
 - **게시글수정**  <br/>
-    <img src="https://github.com/user-attachments/assets/3477b2b0-3a0b-41dd-ac92-5d45833e7a66" width="520px;" alt=""/>
-    <img src="https://github.com/user-attachments/assets/93e0f398-1b59-4f08-8342-63f266588c50" width="520px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/3477b2b0-3a0b-41dd-ac92-5d45833e7a66" width="1000px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/93e0f398-1b59-4f08-8342-63f266588c50" width="1000px;" alt=""/>
 - **게시글삭제** <br/>
-    <img src="https://github.com/user-attachments/assets/9e0d24cf-df68-498e-9146-4e840bee15af" width="520px;" alt=""/>
-    <img src="https://github.com/user-attachments/assets/6bd4db50-f500-4872-90d4-16d57dca0c6d" width="520px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/9e0d24cf-df68-498e-9146-4e840bee15af" width="1000px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/6bd4db50-f500-4872-90d4-16d57dca0c6d" width="1000px;" alt=""/>
 - **댓글작성** <br/>
-    <img src="https://github.com/user-attachments/assets/f529d310-6860-409c-b0f9-3b32d0ba1460" width="520px;" alt=""/>
-    <img src="https://github.com/user-attachments/assets/6926223a-9bde-4c7e-972f-ed6cede79143" width="520px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/f529d310-6860-409c-b0f9-3b32d0ba1460" width="1000px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/6926223a-9bde-4c7e-972f-ed6cede79143" width="1000px;" alt=""/>
 - **댓글삭제** <br/>
-    <img src="https://github.com/user-attachments/assets/a761adc9-2988-4103-ba85-312ed914581a" width="520px;" alt=""/>
-    <img src="https://github.com/user-attachments/assets/920177f1-7b5f-4123-bdeb-ce7247733eb5" width="520px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/a761adc9-2988-4103-ba85-312ed914581a" width="1000px;" alt=""/>
+    <img src="https://github.com/user-attachments/assets/920177f1-7b5f-4123-bdeb-ce7247733eb5" width="1000px;" alt=""/>
 
 ### 참여자 👥
 <table>
