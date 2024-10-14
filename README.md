@@ -43,29 +43,21 @@
 
 ### 화면 구성 🖥️
 
-| 메인화면(게시판목록) | 메인화면(ID순 정렬) | 메인화면(페이징) | 로그인화면 |
-|:-------------------:|:-------------------:|:----------------:|:-----------:|
-| <img src="https://github.com/user-attachments/assets/6888eb0f-cfb9-4722-85f6-e520b7ae190c" width="400px;" alt="메인화면(게시판목록)"/> | <img src="https://github.com/user-attachments/assets/42185bc2-8b5a-43d3-93ad-babb252facca" width="400px;" alt="메인화면(ID순 정렬)"/> | <img src="https://github.com/user-attachments/assets/5cb20bd7-be14-48d0-b38b-e4e8ebed5957" width="400px;" alt="메인화면(페이징)"/> | <img src="https://github.com/user-attachments/assets/f3d19ba0-4cba-412d-a53f-11145f12ea6c" width="400px;" alt="로그인화면"/> |
+| 메인화면(게시판목록) | 로그인화면 |
+|:-------------------:|:-------------------:|
+| <img src="https://github.com/user-attachments/assets/6888eb0f-cfb9-4722-85f6-e520b7ae190c" width="400px;" alt="메인화면(게시판목록)"/> | <img src="https://github.com/user-attachments/assets/f3d19ba0-4cba-412d-a53f-11145f12ea6c" width="400px;" alt="로그인화면"/> |
 
-| 회원정보조회 | 회원정보수정(1) | 회원정보수정(2) | 회원정보수정(3) |
-|:------------:|:---------------:|:---------------:|:---------------:|
-| <img src="https://github.com/user-attachments/assets/50d68453-aea5-42c3-b7ae-a60147430195" width="400px;" alt="회원정보조회"/> | <img src="https://github.com/user-attachments/assets/9fc9827a-f14e-4cf4-96d5-84dcb6045940" width="400px;" alt="회원정보수정(1)"/> | <img src="https://github.com/user-attachments/assets/03af9db3-e7d4-4e4d-bd4e-6d1694e97843" width="400px;" alt="회원정보수정(2)"/> | <img src="https://github.com/user-attachments/assets/7f81420f-8fc1-4869-b160-c6f8ad719a30" width="400px;" alt="회원정보수정(3)"/> |
+| 회원정보조회 | 회원정보수정 |
+|:------------:|:---------------:|
+| <img src="https://github.com/user-attachments/assets/50d68453-aea5-42c3-b7ae-a60147430195" width="400px;" alt="회원정보조회"/> | <img src="https://github.com/user-attachments/assets/9fc9827a-f14e-4cf4-96d5-84dcb6045940" width="400px;" alt="회원정보수정(1)"/> |
 
-| 게시글작성(1) | 게시글작성(2) | 게시글조회 |  |
-|:------------:|:------------:|:------------:|:------------:|
-| <img src="https://github.com/user-attachments/assets/f0fe413b-85b4-44e1-8cca-e60feb606f34" width="400px;" alt="게시글작성(1)"/> | <img src="https://github.com/user-attachments/assets/be3f6650-e1f1-4cac-a3de-6be9c9d90b3c" width="400px;" alt="게시글작성(2)"/> | <img src="https://github.com/user-attachments/assets/8b745f5d-738a-4bd6-bf95-f9adcc1023c5" width="400px;" alt="게시글조회"/> |  |
+| 게시글작성 | 게시글조회 |
+|:------------:|:------------:|
+| <img src="https://github.com/user-attachments/assets/f0fe413b-85b4-44e1-8cca-e60feb606f34" width="400px;" alt="게시글작성(1)"/> | <img src="https://github.com/user-attachments/assets/8b745f5d-738a-4bd6-bf95-f9adcc1023c5" width="400px;" alt="게시글조회"/> |
 
-| 게시글수정(1)| 게시글수정(2) | 게시글삭제(1) | 게시글삭제(2) |
-|:------------:|:------------:|:------------:|:--:|
-| <img src="https://github.com/user-attachments/assets/3477b2b0-3a0b-41dd-ac92-5d45833e7a66" width="400px;" alt="게시글수정(1)"/> | <img src="https://github.com/user-attachments/assets/93e0f398-1b59-4f08-8342-63f266588c50" width="400px;" alt="게시글수정(2)"/> | <img src="https://github.com/user-attachments/assets/9e0d24cf-df68-498e-9146-4e840bee15af" width="400px;" alt="게시글삭제(1)"/> | <img src="https://github.com/user-attachments/assets/6bd4db50-f500-4872-90d4-16d57dca0c6d" width="400px;" alt="게시글삭제(2)"/> | |
-
-| 댓글작성(1) | 댓글작성(2) | 댓글삭제(1) | 댓글삭제(2) |
-|:-----------:|:------------:|:------------:|:------------:|
-| <img src="https://github.com/user-attachments/assets/f529d310-6860-409c-b0f9-3b32d0ba1460" width="400px;" alt="댓글작성(1)"/> | <img src="https://github.com/user-attachments/assets/6926223a-9bde-4c7e-972f-ed6cede79143" width="400px;" alt="댓글작성(2)"/> | <img src="https://github.com/user-attachments/assets/a761adc9-2988-4103-ba85-312ed914581a" width="400px;" alt="댓글삭제(1)"/> | <img src="https://github.com/user-attachments/assets/920177f1-7b5f-4123-bdeb-ce7247733eb5" width="400px;" alt="댓글삭제(2)"/> |
-
-| 회원삭제(1) | 회원삭제(2) | 회원삭제(3) |  |
-|:-----------:|:------------:|:------------:|:------------:|
-| <img src="https://github.com/user-attachments/assets/14c5a8b8-fe9b-4b9e-880e-fa91cc62a106" width="400px;" alt="회원삭제(1)"/> | <img src="https://github.com/user-attachments/assets/f3a12647-83e3-4876-b76c-ee713ea2dce3" width="400px;" alt="회원삭제(2)"/> | <img src="https://github.com/user-attachments/assets/e6df5fd0-3b1e-44e2-a714-8228e0d9e2c3" width="400px;" alt="회원삭제(3)"/> |  |
+| 게시글수정 | 댓글작성 |
+|:------------:|:------------:|
+| <img src="https://github.com/user-attachments/assets/3477b2b0-3a0b-41dd-ac92-5d45833e7a66" width="400px;" alt="게시글수정(1)"/> | <img src="https://github.com/user-attachments/assets/f529d310-6860-409c-b0f9-3b32d0ba1460" width="400px;" alt="댓글작성(1)"/> |
 
 ### 참여자 👥
 <table>
